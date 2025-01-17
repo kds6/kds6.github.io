@@ -1,0 +1,150 @@
+:root {
+    --primary-color: #3B82F6;
+    --text-color: #1F2937;
+    --bg-color: #FFFFFF;
+    --card-bg: #F9FAFB;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --font-primary: 'Inter', sans-serif;
+}
+
+[data-theme="dark"] {
+    --text-color: #E5E7EB;
+    --bg-color: #111827;
+    --card-bg: #1F2937;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 主容器样式 */
+.container {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--spacing-lg);
+}
+
+/* 文章卡片样式 */
+.article-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+}
+
+.article-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-excerpt {
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* 标签样式 */
+.tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+/* 动画效果 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
